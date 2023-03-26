@@ -25,6 +25,7 @@ float dur = 1.0;
 int arrIndex = -1;
 int textIndex;
 boolean anim = true;
+boolean isPairMinute = false;
 Color futureCol;
 ArrayList<Color> colorArr = new ArrayList<Color>();
 String[] texts = {"CARPE DIEM", "LIFE IS BEAUTIFUL", "COGITO ERGO SUM", "YOU ARE BEAUTIFUL", 
@@ -66,19 +67,19 @@ if (frameCount % 60*dur == 0){
   if (arrIndex == colorArr.size()){arrIndex = 0;}
   futureCol = colorArr.get(arrIndex);
 }
-if (frameCount % count(30, Time.SECONDS) == 0){
+if (frameCount % 60*30 == 0){
  anim = !anim; 
  colors();
 }
-if (frameCount % count(1, Time.MINUTES) == 0){
+if (frameCount % 3600 == 0){
 dur = random(1.0) + 1.0;
+isPairMinute = !isPairMinute;
 }
-if (frameCount % count(2, Time.MINUTES) == 0){
+if (frameCount % 7200 == 0){
 textIndex = int(random(texts.length));
 }
-if (frameCount > frame(frameCount, count(2, Time.MINUTES)) && 
-frameCount < frame(frameCount, count(2, Time.MINUTES) + frame(frameCount, count(1, Time.MINUTES)))){
-text(texts[textIndex], width/2, height/2);
+if (isPairMinute == true){
+text(texts[textIndex],width/2,height/2);
 }
 
     if (futureCol == Color.WHITE){
