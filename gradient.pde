@@ -1,5 +1,3 @@
-import java.util.List;
-
 enum Color{
 WHITE,
 YELLOW,
@@ -10,12 +8,6 @@ BLUE,
 PURPLE,
 BROWN,
 ORANGE
-}
-
-enum Time{
-SECONDS,
-MINUTES,
-HOURS
 }
 
 float red = 0.0;
@@ -30,23 +22,6 @@ Color futureCol;
 ArrayList<Color> colorArr = new ArrayList<Color>();
 String[] texts = {"CARPE DIEM", "LIFE IS BEAUTIFUL", "COGITO ERGO SUM", "YOU ARE BEAUTIFUL", 
 "WHAT INSPIRES YOU?", "JAMA"};
-
-int frame(int count, int modulo){
-if (count % modulo == 0){
-  return count;
-} else {
-return 0;
-}
-}
-
-int count(int q, Time time){
-switch(time){
-  case SECONDS: return q*60;
-  case MINUTES: return q*3600;
-  case HOURS: return q*216000;
-  default: return 0;
-}
-}
 
 void colors(){
 colorArr.clear();
