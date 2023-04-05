@@ -18,11 +18,6 @@ void draw(){
   background(red,green,blue);
   if (frameCount % 60 == 0){seconds += 1;}
   if (seconds == 120){seconds = 0;}
-  if (frameCount % 3600*3 == 0){
-    red = random(100);
-    green = random(100);
-    blue = random(100);
-  }
   if (seconds < 30){
     densityX += 0.05; densityY += 0.05;
   }
@@ -45,5 +40,8 @@ void draw(){
   if (frameCount % 7200 == 0){
   iterations = int(random(80)) + 20;
   look = random(3) + 1.0;
+  red = random(80);
+  green = random(80);
+  blue = random(80);
   }
 }

@@ -42,9 +42,10 @@ if (frameCount % 60*dur == 0){
   if (arrIndex == colorArr.size()){arrIndex = 0;}
   futureCol = colorArr.get(arrIndex);
 }
-if (frameCount % 60*30 == 0){
+if (frameCount % 900 == 0){
  anim = !anim; 
  colors();
+ arrIndex = -1;
 }
 if (frameCount % 3600 == 0){
 dur = random(1.0) + 1.0;
