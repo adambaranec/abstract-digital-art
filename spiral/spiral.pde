@@ -38,7 +38,7 @@ void draw(){
         }
   }
   if (frameCount % 7200 == 0){
-  iterations = int(random(80)) + 20;
+  iterations = int(random(100)) + 20;
   look = random(3) + 1.0;
   red = random(80);
   green = random(80);

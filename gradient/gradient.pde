@@ -13,15 +13,14 @@ ORANGE
 float red = 0.0;
 float green = 0.0;
 float blue = 0.0;
-float dur = 1.0;
+float dur = 4.0;
 int arrIndex = -1;
 int textIndex;
-boolean anim = true;
-boolean isPairMinute = false;
+boolean anim = false;
+boolean showText = false;
 Color futureCol;
 ArrayList<Color> colorArr = new ArrayList<Color>();
-String[] texts = {"CARPE DIEM", "LIFE IS BEAUTIFUL", "COGITO ERGO SUM", "YOU ARE BEAUTIFUL", 
-"WHAT INSPIRES YOU?", "JAMA"};
+String[] texts = {"CARPE DIEM", "ENJOY YOUR LIFE"};
 
 void colors(){
 colorArr.clear();
@@ -32,12 +31,13 @@ void setup(){
 fullScreen();
 noCursor();
 colors();
-textSize(60);
-background(red,green,blue);
+textSize(height/6);
+textAlign(CENTER);
+futureCol = colorArr.get(0);
 }
 
 void draw(){
-if (frameCount % 60*dur == 0){
+if (frameCount % (60*dur) == 0){
   arrIndex += 1;
   if (arrIndex == colorArr.size()){arrIndex = 0;}
   futureCol = colorArr.get(arrIndex);
@@ -47,17 +47,13 @@ if (frameCount % 900 == 0){
  colors();
  arrIndex = -1;
 }
-if (frameCount % 3600 == 0){
-dur = random(1.0) + 1.0;
-isPairMinute = !isPairMinute;
+if (frameCount % 1800 == 0){
+ showText = !showText;
 }
-if (frameCount % 7200 == 0){
+if (frameCount % 3600 == 0){
+dur = random(1.0) + 4.0;
 textIndex = int(random(texts.length));
 }
-if (isPairMinute == true){
-text(texts[textIndex],width/2,height/2);
-}
-
     if (futureCol == Color.WHITE){
       if (anim == true){
         red += (1.0 - red) / (frameRate * dur);
@@ -122,6 +118,10 @@ text(texts[textIndex],width/2,height/2);
       } else {red = 1.0; green = 0.45; blue = 0.0;}
     }
       background(red*255.0,green*255.0,blue*255.0);
+      if (showText == true){
+      text(texts[textIndex],width/2,height/2);
+      }
+
 }
 
  
